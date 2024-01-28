@@ -64,8 +64,8 @@ class _ScrollableSheetPageState extends State<ScrollableSheetPage> {
               ),
             ],
             borderRadius: BorderRadius.only(
-              topLeft: controller.isExpandToSize(1) ? Radius.zero : const Radius.circular(24),
-              topRight: controller.isExpandToSize(1) ? Radius.zero : const Radius.circular(24),
+              topLeft: controller.isExpandedToSize(1) ? Radius.zero : const Radius.circular(24),
+              topRight: controller.isExpandedToSize(1) ? Radius.zero : const Radius.circular(24),
             ),
           ),
           child: Stack(
@@ -93,7 +93,7 @@ class _ScrollableSheetPageState extends State<ScrollableSheetPage> {
               AnimatedPositioned(
                 left: 0,
                 right: 0,
-                bottom: controller.isExpandToSize(1) ? -72 : 0,
+                bottom: controller.isExpandedToSize(1) ? -72 : 0,
                 height: 72,
                 duration: kDuration,
                 child: Container(
@@ -117,5 +117,5 @@ class _ScrollableSheetPageState extends State<ScrollableSheetPage> {
 }
 
 extension DraggableScrollableControllerExt on DraggableScrollableController {
-  bool isExpandToSize(double size) => isAttached && size == this.size;
+  bool isExpandedToSize(double size) => isAttached && size == this.size;
 }
